@@ -2,7 +2,8 @@ describe('Alerts', () => {
     //Alert with close button
    it.skip('Alert', () => {
    cy.visit('https://demoqa.com/alerts')
-   cy.get('#alertButton').click();
+   //cy.get('#alertButton').click();
+    cy.clickbutton('#alertbutton')
    cy.on('window:alert',(t)=> {
         expect(t).to.contains('You clicked a button');
     // alert window automatically closed by cypress
