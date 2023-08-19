@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+cypress.commands.add("clicklink", (label) => {
+cy.get('a').contains('label').click();
+})
