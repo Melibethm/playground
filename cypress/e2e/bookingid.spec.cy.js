@@ -1,13 +1,13 @@
 describe('API Testing with Cypress', () => {
 
-    it('should return successful response', () => {
+    it('should retrieve all booking IDs', () => {
   
-      cy.request('GET', 'https://restful-booker.herokuapp.com/ping')
+      cy.request('GET', 'https://restful-booker.herokuapp.com/booking')
   
         .should((response) => {
   
-          expect(response.status).to.eq(201);
-  
+          expect(response.status).to.eq(200);
+ 
           expect(response.body).to.have.length.greaterThan(0);
   
         });
