@@ -2,19 +2,19 @@ name: Owasp intregration
 
 on: [push]
 
- jobs:
-   zap_scan:
-     runs-on: ubuntu-latest
-     name: Scan the webapplication
-     steps:
-       - name: Checkout
-         uses: actions/checkout@v2
-         with:
-           ref: playground
-       - name: ZAP Scan
-         uses: zaproxy/action-baseline@v0.9.0
-         with:
-           docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
-           target: 'https://juice-shop.herokuapp.com/#'
-           rules_file_name: '.zap/rules.tsv'
-           cmd_options: '-a'
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the webapplication
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.9.0
+        with:
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+          target: 'https://juice-shop.herokuapp.com'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
