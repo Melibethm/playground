@@ -1,5 +1,6 @@
-n: [push]
+name: Owasp intregration
 
+on: [push]
  jobs:
    zap_scan:
      runs-on: ubuntu-latest
